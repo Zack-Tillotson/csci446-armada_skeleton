@@ -10,10 +10,9 @@ Role.create!(:name => 'member', :description => 'A typical application user.')
 # Seed developer users.
 r = Role.find_by_name('developer')
 
-# FIXME
-team_member_1 = User.new(:first_name => 'YOUR_FIRST_NAME',
-                         :last_name => 'YOUR_LAST_NAME',
-                         :email => 'PARTNER1@mines.edu',
+team_member_1 = User.new(:first_name => 'Zack',
+                         :last_name => 'Tillotson',
+                         :email => 'ztillots@mines.edu',
                          :password => 'changeme',
                          :password_confirmation => 'changeme',
                          :role => r)
