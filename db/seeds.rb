@@ -1,6 +1,5 @@
 PaperTrail.whodunnit = 'Seed Data Script'
 
-
 # Seed the roles.
 Role.create!(:name => 'developer', :description => 'The system developer. There is no higher access level.')
 Role.create!(:name => 'administrator', :description => 'A system administrator. Full access to all features.')
@@ -18,7 +17,6 @@ team_member_1 = User.new(:first_name => 'Zack',
                          :role => r)
 team_member_1.save_without_session_maintenance
 
-# FIXME
 team_member_2 = User.new(:first_name => 'Kyle',
                          :last_name => 'Schulz',
                          :email => 'ryoken@ryoken.net',
