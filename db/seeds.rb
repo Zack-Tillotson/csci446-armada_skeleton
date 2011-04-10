@@ -20,8 +20,8 @@ team_member_1.save_without_session_maintenance
 team_member_2 = User.new(:first_name => 'Kyle',
                          :last_name => 'Schulz',
                          :email => 'ryoken@ryoken.net',
-                         :password => 'changeme',
-                         :password_confirmation => 'changeme',
+                         :password => 'dragon',
+                         :password_confirmation => 'dragon',
                          :role => r)
 team_member_2.save_without_session_maintenance
 
