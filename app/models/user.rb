@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 
   before_create :assign_default_role
 
+  validates_presence_of :role
+
   def role_symbols
     [role.name.downcase.to_sym]
   end
@@ -25,6 +27,14 @@ class User < ActiveRecord::Base
   
   def is_admin?
     role_symbols.include?(:administrator) || role_symbols.include?(:developer)
+  end
+
+  def to_s
+    self.full_name
+  end
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
   end
 
   private
