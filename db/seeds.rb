@@ -1,3 +1,7 @@
+# Clear previous roles and users.
+User.delete_all
+Role.delete_all
+
 PaperTrail.whodunnit = 'Seed Data Script'
 
 # Seed the roles.
