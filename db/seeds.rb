@@ -1,6 +1,7 @@
-# Clear previous roles and users.
+# Clear previous information.
 User.delete_all
 Role.delete_all
+Harvester.delete_all
 
 PaperTrail.whodunnit = 'Seed Data Script'
 
@@ -37,3 +38,21 @@ yong = User.new(:first_name => 'Yong',
                 :role => r)
 yong.save_without_session_maintenance
 
+# Seed harvesters.
+Harvester.create!(
+	:name => 'Test Harvester 1',
+	:price => '1',
+	:description => 'Test description.',
+	:photo => File.open(File.join(Rails.root, '/test/default.png')))
+
+Harvester.create!(
+	:name => 'Test Harvester 2',
+	:price => '2',
+	:description => 'Test description.',
+	:photo => File.open(File.join(Rails.root, '/test/default.png')))
+
+Harvester.create!(
+	:name => 'Test Harvester 3',
+	:price => '3',
+	:description => 'Test description.',
+	:photo => File.open(File.join(Rails.root, '/test/default.png')))
