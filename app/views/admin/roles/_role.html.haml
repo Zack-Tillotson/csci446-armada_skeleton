@@ -1,5 +1,5 @@
 %tr[role]
-  %td= h role
+  %td= h role.name
   %td= h truncate(role.description, :length => 40)
   %td
     = link_to image_tag('icon_small_show.png'), admin_role_path(role)

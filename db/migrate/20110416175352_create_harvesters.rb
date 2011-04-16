@@ -3,7 +3,7 @@ class CreateHarvesters < ActiveRecord::Migration
 	def self.up
 		create_table :harvesters do |t|
 			t.string :name, :null => false
-			t.integer :price, :null => false
+			t.decimal :price, :null => false
 			t.text :description, :null => false
 			t.photo_file_name :string, :null => false
 			t.photo_content_type :string, :null => false
