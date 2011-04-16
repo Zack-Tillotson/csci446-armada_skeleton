@@ -1,5 +1,5 @@
 %tr
-	%td
+	%td.pic
 		= image_tag(harvester.photo.url(:icon), :html => { :border => 0 })
 	%td
 		=h harvester.name
@@ -8,11 +8,9 @@
 		(
 		= harvester.price
 		ArmadaBucks )
-	%td
-		= link_to image_tag('icon_small_show.png'), harvester_path(harvester), :align => :right
-		= link_to image_tag('icon_small_edit.png'), edit_harvester_path(harvester)
-		= link_to image_tag('icon_small_delete.png'), :confirm => 'Are you sure?', :method => :delete
-%tr
-	%td
-	%td
+		%br
 		= h truncate(harvester.description, :length => 40)
+	%td.links
+		= link_to image_tag('icon_small_show.png', :border => 0 ), harvester_path(harvester)
+		= link_to image_tag('icon_small_edit.png', :border => 0 ), edit_harvester_path(harvester)
+		= link_to image_tag('icon_small_delete.png', :border => 0 ), :confirm => 'Are you sure?', :method => :delete
