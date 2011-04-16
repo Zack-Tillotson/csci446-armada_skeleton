@@ -1,6 +1,7 @@
 class Role < ActiveRecord::Base
 
 	has_paper_trail
+  validates_presence_of :name
 	validates_length_of :name, :minimum => 1
 	validates_uniqueness_of :name
 	has_many :users
@@ -14,7 +15,9 @@ protected
 	def after_initialize
 		if new_record? then
 			#puts "Name is: #{self.name}"
-			self.name = self.name.strip.downcase
+			if(self.name?)
+        self.name = self.name.strip.downcase
+      end
 			#puts "Name is now: #{self.name}"
 		end
 	end

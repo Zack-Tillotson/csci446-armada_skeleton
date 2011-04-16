@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
 
   default_scope :include => :role
 
-  before_create :assign_default_role
+  before_validation_on_create :assign_default_role
+  validates_presence_of :role
 
   def role_symbols
     [role.name.downcase.to_sym]
@@ -27,10 +28,18 @@ class User < ActiveRecord::Base
     role_symbols.include?(:administrator) || role_symbols.include?(:developer)
   end
 
-  private
+  def to_s
+    self.full_name
+  end
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
+private
 
     def assign_default_role
-      self.role = Role.find_by_name('member') if role_id.blank?
+      self.role ||= Role.find_by_name('member')
     end
 
 end
