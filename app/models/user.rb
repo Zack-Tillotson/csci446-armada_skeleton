@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_paper_trail
   
   belongs_to :role, :counter_cache => true
+  has_many :harvesters
 
   default_scope :include => :role
 
