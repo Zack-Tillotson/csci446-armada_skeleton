@@ -1,10 +1,9 @@
 - content_for :title do
-  Administration Home
+	Administration Home
 
 
-%h2 Administration Home
-#main
-  %p This is the administration interface for the morning-window-839 application.
-  %p This system is currently a barebones RoR program, and proud of it!
-#sidebar
-  %p sidebar
+%h2 Administration - Viewing all Harvesters
+= "#{pluralize(@harvesters.count, "harvester")} as of #{Time.now.strftime("%b. %d, %Y")}"
+= link_to 'New', register_path
+%p
+	= harvesters_list(@harvesters)
