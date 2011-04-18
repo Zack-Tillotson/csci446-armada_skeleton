@@ -1,11 +1,15 @@
 %tr
+	%td
+		%br
+%tr
 	%td.pic
 		= image_tag(harvester.photo.url(:icon), :html => { :border => 0 })
 	%td
-		=h "#{harvester.name} by #{harvester.user} (#{harvester.price} ArmadaBucks)"
+		= h "#{harvester.name} by #{harvester.user} (#{harvester.price} ArmadaBucks)"
 		%br
-		=h truncate(harvester.description, :length => 50)
-		=link_to "more", ""
+		.desc{:id => "desc#{harvester.id}"}
+			= h truncate(harvester.description, :length => 50)
+			= more_link(harvester)
 	%td.links
 		= link_to image_tag('icon_small_show.png', :border => 0 ), harvester_path(harvester)
 		= link_to image_tag('icon_small_edit.png', :border => 0 ), edit_harvester_path(harvester)
