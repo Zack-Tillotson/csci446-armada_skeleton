@@ -4,7 +4,7 @@ class HarvestersController < ApplicationController
 
 	HARVESTERS_PER_PAGE = 5
 
-	def index 
+	def index
 		@harvesters = Harvester.paginate(:page => params[:page], :per_page => HARVESTERS_PER_PAGE)
 		respond_to do |format|
 			format.html
@@ -23,8 +23,8 @@ class HarvestersController < ApplicationController
 	def new
 		@harvester = Harvester.new
 		respond_to do |format|
-		format.html
-		format.xml  { render :xml => @harvester }
+			format.html
+			format.xml  { render :xml => @harvester }
 		end
 	end
 

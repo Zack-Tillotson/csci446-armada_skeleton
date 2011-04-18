@@ -43,7 +43,7 @@ Harvester.create!(
 	:user_id => team_member_1.id,
 	:name => 'Test Harvester 1',
 	:price => 1.1,
-	:description => 'Test description.',
+	:description => 'Test description.  Test description.  Test description.  Test description.  Test description.  Test description.  Test description.  Test description.  Test description.  Test description.',
 	:photo => File.open(File.join(Rails.root, '/test/default.png')))
 
 Harvester.create!(
