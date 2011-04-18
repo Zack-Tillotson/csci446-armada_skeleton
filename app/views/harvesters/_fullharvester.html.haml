@@ -1,0 +1,29 @@
+- content_for :title do
+  = "Harvester #{@harvester}"
+
+%div[@harvester]
+  %h1 
+    =h @harvester.name
+  %div.links
+    = link_to "#{image_tag('icon_small_larrow.png', :border => 0 )} Back To List", harvesters_path
+    - if user_created_harvester(@harvester)
+      = link_to "#{image_tag('icon_small_edit.png', :border => 0 )} Edit", edit_harvester_path(@harvester)
+      = link_to "#{image_tag('icon_small_delete.png', :border => 0 )} Delete", :confirm => 'Are you sure?', :method => :delete
+  %div.createdby
+    Created by 
+    =h @harvester.user
+    on 
+    =h @harvester.created_at
+  .pic
+    = image_tag(@harvester.photo.url(:icon), :html => { :border => 0 })
+  %div.infopiece
+    %span.bold
+      Name: 
+    =h @harvester.name
+  %br
+    = h @harvester.description
+  %br
+    %span.bold
+      Price: 
+      = @harvester.price
+      ArmadaBucks
