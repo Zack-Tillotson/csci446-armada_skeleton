@@ -19,5 +19,18 @@ module ApplicationHelper
   def google_webfont_stylesheet(face)
     "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://fonts.googleapis.com/css?family=#{face}\" />"
   end
-  
+
+  def store_location
+    session[:return_to] = request.request_uri
+  end
+
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
+  end
+
+  def user_created_harvester(harvester)
+    current_user && User.find(harvester.user_id) == current_user
+  end
+ 
 end
