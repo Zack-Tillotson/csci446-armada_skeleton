@@ -1,7 +1,7 @@
-%h2 Viewing all Harvesters
-= pluralize(@harvesters.count, "harvester")
-as of
-= Time.now.strftime("%b. %d, %Y")
-= link_to 'New', new_harvester_path
+- content_for :title do
+	Administration Home
+
+%h2 Administration - Viewing all Harvesters
+= render :partial => "/global/item_info"
 %p
 	= harvesters_list(@harvesters)

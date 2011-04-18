@@ -1,6 +1,8 @@
-class HarvestersController < ApplicationController
+class Admin::HarvestersController < Admin::AdminController
 
-  before_filter :require_user, :only => [:new, :create]
+  before_filter :require_user
+  
+  filter_access_to :all
 
 	HARVESTERS_PER_PAGE = 5
 

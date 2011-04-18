@@ -14,12 +14,12 @@ ActionController::Routing::Routes.draw do |map|
 		admin.resources :roles
 		admin.resources :users
 		admin.resources :harvesters
-		admin.root :controller => 'admin', :action => 'index'
+		admin.root :controller => 'harvesters', :action => 'index'
 	end
 
 	map.namespace :members do |members|
 		members.resources :users, :only => [:show, :edit, :update]
-		members.root :controller => 'members', :action => 'index'
+		members.root :controller => 'harvesters', :action => 'index'
 		members.resources :harvesters
 	end
 
