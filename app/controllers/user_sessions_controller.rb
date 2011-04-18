@@ -4,6 +4,7 @@ class UserSessionsController < ApplicationController
   before_filter :require_user, :only => :destroy
 
   def new
+      flash[:notice] = session[:return_to]
     @user_session = UserSession.new
   end
 
@@ -11,7 +12,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:success] = "Login successful."
-      redirect_to home_url_for(UserSession.find.user)
+      redirect_back_or_default home_url_for(UserSession.find.user)
     else
       render :action => :new
     end

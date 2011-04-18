@@ -1,5 +1,7 @@
 class HarvestersController < ApplicationController
 
+  before_filter :require_user, :only => [:new, :create]
+
 	HARVESTERS_PER_PAGE = 5
 
 	def show

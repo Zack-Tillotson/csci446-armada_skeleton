@@ -33,8 +33,11 @@ class ApplicationController < ActionController::Base
      def require_user
        unless current_user
          flash[:notice] = "You must log in if you want to access that."
-         redirect_to root_url
-         return false
+          if(!session[:return_to])
+            store_location url_for(request.url)
+          end
+          redirect_to :login
+          return false
        end
      end
      
@@ -45,5 +48,17 @@ class ApplicationController < ActionController::Base
          return false
        end
      end
+
+  def store_location(location = nil)
+puts "################ stored location" + (session[:return_to] || " nil")
+    session[:return_to] = location || request.request_uri 
+puts "######### storing location" + session[:return_to]
+  end
+
+  def redirect_back_or_default(default)
+puts "######### redirecting to location " + session[:return_to]
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
+  end
 
 end
