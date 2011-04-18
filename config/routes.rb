@@ -1,11 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.root :controller => "harvesters", :action => "show"
+  map.root :controller => "harvesters", :action => "index"
   map.logout 'logout', :controller => "user_sessions", :action => "destroy"
   map.login 'login', :controller => "user_sessions", :action => "new"
   map.resources :user_sessions, :only => [:new, :create, :destroy]
   map.resources :password_resets, :only => [:new, :create, :edit, :update]
-	map.resources :harvesters, :only => [:new, :create, :edit, :update, :destroy]
+	map.resources :harvesters, :only => [:show, :new, :create, :edit, :update, :destroy]
   
   map.register 'register', :controller => 'users', :action => 'new'
   map.resources :users, :only => [:new, :create]

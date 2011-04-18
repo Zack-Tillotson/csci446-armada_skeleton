@@ -50,13 +50,10 @@ class ApplicationController < ActionController::Base
      end
 
   def store_location(location = nil)
-puts "################ stored location" + (session[:return_to] || " nil")
     session[:return_to] = location || request.request_uri 
-puts "######### storing location" + session[:return_to]
   end
 
   def redirect_back_or_default(default)
-puts "######### redirecting to location " + session[:return_to]
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end

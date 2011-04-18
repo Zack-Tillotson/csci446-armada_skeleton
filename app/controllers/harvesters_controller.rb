@@ -4,13 +4,21 @@ class HarvestersController < ApplicationController
 
 	HARVESTERS_PER_PAGE = 5
 
-	def show
+	def index 
 		@harvesters = Harvester.paginate(:page => params[:page], :per_page => HARVESTERS_PER_PAGE)
 		respond_to do |format|
 			format.html
-			format.xml  { render :xml => @user }
+			format.xml  { render :xml => @harvester }
 		end
 	end
+
+	def show
+		@harvester = Harvester.find(params[:id])
+		respond_to do |format|
+			format.html
+			format.xml  { render :xml => @harvester }
+    end
+  end
 
 	def new
 		@harvester = Harvester.new

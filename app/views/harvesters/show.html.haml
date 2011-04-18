@@ -1,7 +1,1 @@
-%h2 Viewing all Harvesters
-= pluralize(@harvesters.count, "harvester")
-as of
-= Time.now.strftime("%b. %d, %Y")
-= link_to 'New', new_harvester_path
-%p
-	= harvesters_list(@harvesters)
+= harvester_show(@harvester)

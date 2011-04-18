@@ -10,4 +10,9 @@ module HarvesterHelper
 		end
 	end
 
+	def harvester_show(h)
+    render :partial => 'fullharvester', :locals => {:harvester => h}
+	end
+
+
 end

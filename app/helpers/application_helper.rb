@@ -28,5 +28,9 @@ module ApplicationHelper
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
+
+  def user_created_harvester(harvester)
+    current_user && User.find(harvester.user_id) == current_user
+  end
  
 end
