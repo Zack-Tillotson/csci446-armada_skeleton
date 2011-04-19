@@ -1,12 +1,16 @@
 - content_for :title do
-	= "Viewin Harvester: #{@harvester}"
+  = "Viewin Harvester: #{@harvester}"
 
 .links=link_to "#{image_tag('icon_small_larrow.png', :border => 0 )} Back To List", harvesters_path
 %h1=h @harvester.name
+- if @harvester.favorite?(current_user)
+  Grey Star!
+- else
+  Gold Star!
 .listing
-	.bigpic= image_tag(@harvester.photo.url(:small), :html => { :border => 0 })
-	%div.createdby=h "Created by #{@harvester.user} on #{@harvester.created_at.strftime("%b. %d, %Y")}"
-	%br
-	%div.infopiece=h @harvester.description
-	%br
-		%span.bold= "Price: #{@harvester.price} ArmadaBucks"
+  .bigpic= image_tag(@harvester.photo.url(:small), :html => { :border => 0 })
+  %div.createdby=h "Created by #{@harvester.user} on #{@harvester.created_at.strftime("%b. %d, %Y")}"
+  %br
+  %div.infopiece=h @harvester.description
+  %br
+    %span.bold= "Price: #{@harvester.price} ArmadaBucks"

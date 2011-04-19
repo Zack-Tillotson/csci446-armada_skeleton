@@ -11,6 +11,11 @@ class Harvester < ActiveRecord::Base
 		name
 	end
 
+  def favorite?(user)
+    Favorite.exists?(['harvester_id = ? and user_id = ?', self.id, user.id])
+  end
+
+
 protected
 
 	def set_user
