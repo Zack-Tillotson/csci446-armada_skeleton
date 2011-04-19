@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
           if(!session[:return_to])
             store_location url_for(request.url)
           end
-          redirect_to :login
+          redirect_to root_url
           return false
        end
      end

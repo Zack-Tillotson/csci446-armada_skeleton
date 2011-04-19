@@ -2,14 +2,14 @@
 authorization do
   role :member do
     has_permission_on :members_members, :to => :read
-	 has_permission_on :members_harvesters, :to => :all
+	 has_permission_on :members_harvesters, :to => :manage
   end
   role :administrator do
     includes :member
     has_permission_on :admin_admin, :to => :read
     has_permission_on :admin_users, :to => :manage
     has_permission_on :admin_roles, :to => :manage
-	 has_permission_on :admin_harvesters, :to => :all
+	 has_permission_on :admin_harvesters, :to => :manage
   end
   role :developer do
     includes :administrator
@@ -17,7 +17,6 @@ authorization do
 end
 
 privileges do
-  privilege :all, :includes => [ :index, :create, :edit, :destroy, :update, :new, :show]
   privilege :manage, :includes => [:create, :read, :update, :delete]
   privilege :read, :includes => [:index, :show]
   privilege :create, :includes => :new
