@@ -1,4 +1,6 @@
-= pluralize(@harvesters.count, "harvester")
-as of
-= Time.now.strftime("%b. %d, %Y")
-= link_to 'New', new_members_harvester_path
+.info
+	= pluralize(@harvesters.count, "harvester")
+	as of
+	= Time.now.strftime("%b. %d, %Y")
+	.new_link
+		= link_to 'Create a New Harvester!', new_members_harvester_path
