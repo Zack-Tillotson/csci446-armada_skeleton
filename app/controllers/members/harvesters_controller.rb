@@ -49,7 +49,7 @@ class Members::HarvestersController < Members::MembersController
 		respond_to do |format|
 			if @harvester.update_attributes(params[:harvester])
 				flash[:success] = 'Harvester was successfully updated.'
-				format.html { redirect_to home_url_for(UserSession.find.user) }
+				format.html { redirect_back_or_default(home_url_for(UserSession.find.user)) }
 				format.xml  { head :ok }
 			else
 				format.html { render :action => "edit" }
