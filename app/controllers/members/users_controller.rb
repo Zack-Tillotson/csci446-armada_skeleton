@@ -1,11 +1,4 @@
-class Members::MembersController < ApplicationController
-  before_filter :require_user
-
-  filter_access_to :all
-
-  def index
-    render
-  end
+class Members::UsersController < Members::MembersController
   
   def edit
     @user=current_user
@@ -24,15 +17,5 @@ class Members::MembersController < ApplicationController
       end
     end
   end
-  protected
-
-    def permission_denied
-      flash[:error] = "You do not have access to #{request.path}."
-      respond_to do |format|
-        format.html { redirect_to members_root_url }
-        format.xml { head :unauthorized }
-        format.js { head :unauthorized }
-      end
-    end
   
 end

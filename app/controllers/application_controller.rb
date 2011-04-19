@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-  
+
     def home_url_for(user)
       return root_url if user.nil?
       user.is_admin? ? admin_root_url : members_root_url
