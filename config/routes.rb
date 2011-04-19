@@ -8,6 +8,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.resources :harvesters, :only => [:index, :show]
   
 	map.register 'register', :controller => 'users', :action => 'new'
+	map.resources :users, :only => [:new, :create]
 
 	map.namespace :admin do |admin|
 		admin.resources :roles

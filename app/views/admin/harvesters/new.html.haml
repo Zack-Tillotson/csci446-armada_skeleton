@@ -3,7 +3,7 @@
 
 .login
 	%h2 Create Harvester
-	- form_for @harvester do |f|
+	- form_for [:admin, @harvester] do |f|
 		= f.error_messages
 		%p
 			= f.label :name, 'Name'

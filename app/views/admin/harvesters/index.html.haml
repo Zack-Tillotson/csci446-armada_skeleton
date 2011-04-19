@@ -2,6 +2,7 @@
 	Administration Home
 
 .title Administration - Viewing all Harvesters
+.new_link
+	= link_to 'Create a New Harvester!', new_admin_harvester_path
 = render :partial => "/global/item_info"
-%p
-	= harvesters_list(@harvesters)
+%p= harvesters_list(@harvesters)

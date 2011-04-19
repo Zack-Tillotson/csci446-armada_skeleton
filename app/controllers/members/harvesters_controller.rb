@@ -31,7 +31,7 @@ class Members::HarvestersController < Members::MembersController
 		respond_to do |format|
 			if @harvester.save
 				flash[:success] = 'Harvester was successfully created.'
-				format.html
+				format.html { redirect_to members_root_url }
 				format.xml  { render :xml => @harvester }
 			else
 				format.html { render :action => "new" }
@@ -39,5 +39,20 @@ class Members::HarvestersController < Members::MembersController
 			end
 		end
 	end
-
+	
+  def destroy
+	 @harvester = Harvester.find(params[:id])
+    respond_to do |format|
+      if @harvester.destroy
+        flash[:success] = 'Harvester was successfully destroyed.'        
+        format.html { redirect_to member_home_url }
+        format.xml  { head :ok }
+      else
+        flash[:error] = 'Harvester could not be destroyed.'
+        format.html { redirect_to member_harvester_url(@harvester) }
+        format.xml  { head :unprocessable_entity }
+      end
+    end
+  end
+  
 end
