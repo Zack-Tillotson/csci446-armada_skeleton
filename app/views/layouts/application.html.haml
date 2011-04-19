@@ -16,6 +16,8 @@
         = menubar(current_user)
       #content
         - unless flash.empty?
+          - if current_user
+            %br
           - flash.each do |key, msg|
             %div{:class => "flash #{key}"}
               %p= msg

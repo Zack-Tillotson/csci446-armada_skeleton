@@ -1,8 +1,7 @@
 - content_for :title do
 	Dragon Brand Resource Gatherer Armada Depot
 
-.title Viewing all Harvesters
-.new_link
-	= link_to 'Create a New Harvester!', new_members_harvester_path
-= render :partial => "/global/item_info"
-%p= harvesters_list(@harvesters)
+- content_for :sub_title do
+	Viewing all Harvesters
+
+= render :partial => "global/harvester_index"

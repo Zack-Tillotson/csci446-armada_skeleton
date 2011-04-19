@@ -42,7 +42,7 @@ a
     text-align: right
 
 ul.menubar
-  @include shadow
+  @include shadow(3px, 3px, #666)
   @include rounded
   font-family: "Helvetica Neue"
   font-weight: 200
@@ -57,7 +57,7 @@ ul.menubar
     a
       @include rounded
       color: #000
-      padding: 2px 1em
+      padding: 2px 1em 3px
       margin: 0px
       text-decoration: none
       &:hover

@@ -31,7 +31,7 @@ class Members::HarvestersController < Members::MembersController
 		respond_to do |format|
 			if @harvester.save
 				flash[:success] = 'Harvester was successfully created.'
-				format.html { redirect_to members_root_url }
+				format.html { redirect_to home_url_for(UserSession.find.user) }
 				format.xml  { render :xml => @harvester }
 			else
 				format.html { render :action => "new" }

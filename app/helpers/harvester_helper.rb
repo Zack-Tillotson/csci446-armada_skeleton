@@ -6,7 +6,7 @@ module HarvesterHelper
 				"No harvesters have been created."
 			end
 		else
-			render :partial => 'list', :locals => {:harvesters => h}
+			render :partial => 'global/list', :locals => {:harvesters => h}
 		end
 	end
 
@@ -14,6 +14,14 @@ module HarvesterHelper
 		if h.description.length > 50
 			link_to_function("more", nil, :id => "1") do |page|
 				page["desc#{h.id}"].replace_html "#{h.description}"
+			end
+		end
+	end
+
+	def links(h)
+		if current_user
+			if current_user.id==h.user_id || current_user.is_admin?
+				render :partial => 'links', :locals => {:harvester => h}
 			end
 		end
 	end

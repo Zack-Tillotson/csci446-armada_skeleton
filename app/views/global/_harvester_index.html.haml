@@ -1,0 +1,4 @@
+.title= yield :sub_title
+.new_link= link_to 'Create a New Harvester!', new_members_harvester_path
+= render :partial => "/global/item_info"
+%p= harvesters_list(@harvesters)
