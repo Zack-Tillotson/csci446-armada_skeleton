@@ -156,21 +156,30 @@ p.hint
 
 .left
   float: left
+
 .bold
   font-weight: bold
 
+.title
+  font-weight: bold
+  font-size: 1.5em
+  margin-top: 20px
+
 .info
+  margin-top: 0px
   font-size: .8em
 
 .new_link
   position: relative
   top: -20px
-  @include rounded(5px)
   float: right
+  @include rounded(5px)
+  @include shadow(2px, 2px, #999)
   display: inline
   background-color: $red_orange
   padding: 10px
   a
+    font-weight: bold
     color: white
     font-size: 14px
     text-decoration: none
