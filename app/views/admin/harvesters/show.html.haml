@@ -1,1 +1,15 @@
-Temp
+- content_for :title do
+	= "Viewin Harvester: #{@harvester}"
+
+.links
+	= link_to "#{image_tag('icon_small_larrow.png', :border => 0 )} Back To List", admin_root_path
+	= link_to image_tag('icon_small_edit.png', :border => 0 ), edit_admin_harvester_path(@harvester)
+	= link_to image_tag('icon_small_delete.png', :border => 0 ), :confirm => 'Are you sure?', :method => :delete
+%h1=h @harvester.name
+.listing
+	.bigpic= image_tag(@harvester.photo.url(:small), :html => { :border => 0 })
+	%div.createdby=h "Created by #{@harvester.user} on #{@harvester.created_at.strftime("%b. %d, %Y")}"
+	%br
+	%div.infopiece=h @harvester.description
+	%br
+		%span.bold= "Price: #{@harvester.price} ArmadaBucks"

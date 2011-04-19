@@ -136,24 +136,50 @@ p.hint
     width: 60px
   table
     width: 100%
+  .bigpic
+    border: 2px solid $red_orange
+    padding: 2px
+    text-align: center
+    img
+      vertical-align: middle
+    float: left
+    width: 160px
+    height: 160px
+    margin-right: 10px
+    margin-bottom: 10px
+
+.createdby
+  font-style: italic
+
+.links
+  float: right
 
 .left
   float: left
+
 .bold
   font-weight: bold
 
+.title
+  font-weight: bold
+  font-size: 1.5em
+  margin-top: 20px
+
 .info
+  margin-top: 0px
   font-size: .8em
 
 .new_link
   position: relative
   top: -20px
-  @include rounded(5px)
   float: right
+  @include rounded(5px)
+  @include shadow(2px, 2px, #999)
   display: inline
   background-color: $red_orange
   padding: 10px
   a
+    font-weight: bold
     color: white
     font-size: 14px
     text-decoration: none
