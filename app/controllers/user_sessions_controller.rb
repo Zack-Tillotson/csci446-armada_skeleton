@@ -4,7 +4,7 @@ class UserSessionsController < ApplicationController
   before_filter :require_user, :only => :destroy
 
   def new
-      flash[:notice] = session[:return_to]
+    flash[:notice] = session[:return_to]
     @user_session = UserSession.new
   end
 
