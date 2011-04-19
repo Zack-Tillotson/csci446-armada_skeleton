@@ -1,6 +1,6 @@
 - content_for :title do
-	Create a new Harvester
+	= "Editing Harvester: #{@harvester}"
 %br
 .login
-	%h2 Create a new Harvester!
+	%h2= "Editing Harvester"
 	= render :partial => "members/harvesters/form"

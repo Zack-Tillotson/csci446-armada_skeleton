@@ -1,0 +1,16 @@
+- form_for [:members, @harvester] do |f|
+	= f.error_messages
+	%p
+		= f.label :name, 'Name'
+		= f.text_field :name
+	%p
+		= f.label :price, 'Price'
+		= f.text_field :price
+	%p
+		= f.label :description, 'Description'
+		= f.text_area :description
+	%p
+		= f.label :photo
+		= f.file_field :photo
+	%p
+		= f.submit "Save"

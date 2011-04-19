@@ -39,13 +39,31 @@ class Members::HarvestersController < Members::MembersController
 			end
 		end
 	end
-	
+
+	def edit
+		@harvester = Harvester.find(params[:id])
+	end
+  
+	def update
+		@harvester = Harvester.find(params[:id])
+		respond_to do |format|
+			if @harvester.update_attributes(params[:harvester])
+				flash[:success] = 'Harvester was successfully updated.'
+				format.html { redirect_to home_url_for(UserSession.find.user) }
+				format.xml  { head :ok }
+			else
+				format.html { render :action => "edit" }
+				format.xml  { render :xml => @harvester.errors, :status => :unprocessable_entity }
+			end
+		end
+	end 
+  
   def destroy
 	 @harvester = Harvester.find(params[:id])
     respond_to do |format|
       if @harvester.destroy
         flash[:success] = 'Harvester was successfully destroyed.'        
-        format.html { redirect_to member_home_url }
+        format.html { redirect_to members_root_url }
         format.xml  { head :ok }
       else
         flash[:error] = 'Harvester could not be destroyed.'

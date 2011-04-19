@@ -20,8 +20,12 @@ module HarvesterHelper
 
 	def links(h)
 		if current_user
-			if current_user.id==h.user_id || current_user.is_admin?
-				render :partial => 'links', :locals => {:harvester => h}
+			if current_user.id==h.user_id 
+				render :partial => 'members/harvesters/links', :locals => {:harvester => h}
+			else
+				if current_user.is_admin?
+					render :partial => 'admin/harvesters/links', :locals => {:harvester => h}
+				end
 			end
 		end
 	end
