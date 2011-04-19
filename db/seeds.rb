@@ -44,18 +44,18 @@ Harvester.create!(
 	:name => 'Test Harvester 1',
 	:price => 1.1,
 	:description => 'Test description.  Test description.  Test description.  Test description.  Test description.  Test description.  Test description.  Test description.  Test description.  Test description.',
-	:photo => File.open(File.join(Rails.root, '/test/default.png')))
+	:photo => File.open(File.join(Rails.root, '/public/images/default.png')))
 
 Harvester.create!(
 	:user_id => team_member_2.id,
 	:name => 'Test Harvester 2',
 	:price => 2.2,
 	:description => 'Test description.',
-	:photo => File.open(File.join(Rails.root, '/test/default.png')))
+	:photo => File.open(File.join(Rails.root, '/public/images/default.png')))
 
 Harvester.create!(
 	:user_id => yong.id,
 	:name => 'Test Harvester 3',
 	:price => 3.3,
 	:description => 'Test description.',
-	:photo => File.open(File.join(Rails.root, '/test/default.png')))
+	:photo => File.open(File.join(Rails.root, '/public/images/default.png')))
