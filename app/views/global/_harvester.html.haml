@@ -12,5 +12,5 @@
 			= h truncate(harvester.description, :length => 50)
 			= more_link(harvester)
 	%td.links
-		= link_to image_tag('icon_small_show.png', :border => 0 ), harvester_path(harvester)
+		= link_to image_tag('icon_small_show.png', :border => 0 ), harvester_path(harvester), :title => 'View Harvester'
 		= links(harvester)

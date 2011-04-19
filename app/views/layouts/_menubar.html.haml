@@ -1,3 +1,5 @@
 %ul.menubar
-  %li= link_to 'harvesters', home_url_for(current_user), :title => 'Harvesters'
+  %li= link_to 'all harvesters', home_url_for(current_user), :title => 'Show All Harvesters'
+  %li= link_to 'my harvesters', '', :title => 'Show My Harvesters'
+  %li= link_to 'favorites', '', :title => 'Show My Favorites'
   = admin_menu_items(current_user)
