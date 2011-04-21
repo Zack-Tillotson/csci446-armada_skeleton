@@ -30,4 +30,14 @@ module HarvesterHelper
 		end
 	end
 
+  def show_favorite_star(h, u)
+
+    if h.favorite?(u)
+      image_tag('/images/icon_small_star.png')
+    else
+      image_tag('/images/icon_small_star_inactive.png')
+    end
+
+  end
+
 end

@@ -9,6 +9,11 @@
     - if user_created_harvester(@harvester)
       = link_to "#{image_tag('icon_small_edit.png', :border => 0 )} Edit", edit_harvester_path(@harvester)
       = link_to "#{image_tag('icon_small_delete.png', :border => 0 )} Delete", :confirm => 'Are you sure?', :method => :delete
+  %div.favorite
+    - if @harvester.favorite?(current_user)
+      favorite!
+    - else
+      not fav!
   %div.createdby
     Created by 
     =h @harvester.user

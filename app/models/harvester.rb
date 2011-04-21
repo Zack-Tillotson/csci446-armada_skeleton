@@ -21,6 +21,17 @@ class Harvester < ActiveRecord::Base
     Favorite.exists?(['harvester_id = ? and user_id = ?', self.id, user.id])
   end
 
+  def toggle_favorite!(user)
+    if(self.favorite?(user))
+      Favorite.find(:first, :conditions => {:harvester_id => self.id, :user_id => user.id}).destroy
+      false
+    else
+      f = Favorite.new({:user_id => user.id, :harvester_id => self.id})
+      f.save
+      true
+    end
+  end
+
 
 protected
 
