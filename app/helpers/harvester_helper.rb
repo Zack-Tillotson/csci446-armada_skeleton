@@ -34,11 +34,21 @@ module HarvesterHelper
 
     if u != nil
       if h.favorite?(u)
-        image_tag('/images/icon_small_star.png')
+        render :partial => "/members/harvesters/favorite", :locals => { :h => h, :u => u, :fav => true }
       else
-        image_tag('/images/icon_small_star_inactive.png')
+        render :partial => "/members/harvesters/favorite", :locals => { :h => h, :u => u, :fav => false }
       end
     end
+
+  end
+
+  def fav_form_url(h, u)
+
+      if(f = Favorite.find(:first, :conditions => {:harvester_id => h.id, :user_id => u.id}))
+        "/"
+      else
+        "/"
+      end
 
   end
 

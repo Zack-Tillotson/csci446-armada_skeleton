@@ -1,0 +1,4 @@
+- form_remote_for :favorite, :url => fav_form_url(h, u), :html => {:style => "display: inline"} do |f|
+  = f.hidden_field :user_id, :value => u.id
+  = f.hidden_field :harvester_id, :value => h.id
+  = image_submit_tag fav ? '/images/icon_small_star.png' : '/images/icon_small_star_inactive.png'

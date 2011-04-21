@@ -6,7 +6,6 @@ ActionController::Routing::Routes.draw do |map|
 	map.resources :user_sessions, :only => [:new, :create, :destroy]
 	map.resources :password_resets, :only => [:new, :create, :edit, :update]
 	map.resources :harvesters, :only => [:index, :show]
-	map.resources :favorites, :only => [:create, :destroy]
   
 	map.register 'register', :controller => 'users', :action => 'new'
 	map.resources :users, :only => [:new, :create]
@@ -20,8 +19,9 @@ ActionController::Routing::Routes.draw do |map|
 
 	map.namespace :members do |members|
 		members.resources :users, :only => [:show, :edit, :update]
-		members.root :controller => 'harvesters', :action => 'index'
+    members.resources :favorites
 		members.resources :harvesters
+		members.root :controller => 'harvesters', :action => 'index'
 	end
 
 end
