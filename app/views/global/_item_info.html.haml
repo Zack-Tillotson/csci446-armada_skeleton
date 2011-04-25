@@ -1,4 +1,4 @@
 .info
-	= pluralize(@harvesters.count, "harvester")
+	= pluralize(Harvester.all.count, "harvester")
 	as of
 	= Time.now.strftime("%b. %d, %Y")
