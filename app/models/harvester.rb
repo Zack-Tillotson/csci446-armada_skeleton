@@ -4,6 +4,8 @@ class Harvester < ActiveRecord::Base
 	before_validation :set_user
 	has_many :favorites
 	has_many :users, :through => :favorites
+  validates_numericality_of :price
+  validates_presence_of :price
 
 	has_attached_file	:photo,
 							:styles => { :icon => "50x50", :small => "150x150>" },
